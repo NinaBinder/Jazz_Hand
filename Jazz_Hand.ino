@@ -24,40 +24,63 @@ void setup() {
 void loop() {
 
   int finger1State=analogRead(finger1);
-  Serial.println(finger1State);
 
   int finger2State=analogRead(finger2);
-  Serial.println(finger2State);
 
   int finger3State=analogRead(finger3);
-  Serial.println(finger3State);
+  
 
   int finger4State=analogRead(finger4);
-  Serial.println(finger4State);
+  
 
   int finger5State=analogRead(finger5);
-  Serial.println(finger5State);
+  
+
+if ((finger1State<=300) && (finger2State<=350)) {
+  tone(3,NOTE_B5);
+  Serial.println("finger1&2");
+}
+
+else if ((finger2State<=350) && (finger3State<=300)) {
+  tone(3,NOTE_GS5);
+  Serial.println("finger2&3");
+}
+
+else if ((finger3State<=300) && (finger4State<=300)) {
+  tone(3,NOTE_F5);
+  Serial.println("finge3&4");
+}
+
+else if ((finger4State<=300) && (finger5State<=300)) {
+  tone(3,NOTE_G5);
+  Serial.println("finge4&5");
+}
 
 
-if ((finger1State<=300)){
-      tone(8, NOTE_C2);
+else if ((finger1State<=300)){
+      tone(3, NOTE_C5);
+      Serial.println("finger1");
     }
 
-if ((finger2State<=300)){
-      tone(8, NOTE_A);
+else if ((finger2State<=350)){
+      tone(3, NOTE_A5);
+      Serial.println("finger2");
     }
 
-if ((finger3State<=300)){
-      tone(8, NOTE_G);
+else if ((finger3State<=300)){
+      tone(3, NOTE_G5);
     }   
 
-if ((finger4State<=300)){
-      tone(8, NOTE_E);
+else if ((finger4State<=300)){
+      tone(3, NOTE_E5);
     } 
 
-if ((finger5State<=300)){
-      tone(8, NOTE_C);
+else if ((finger5State<=300)){
+      tone(3, NOTE_C6);
     }
+
+else {
+    noTone(3);
   }
- 
 }
+ 
