@@ -6,50 +6,58 @@ int finger3 =A3; //G
 int finger4 =A4; //E
 int finger5 =A5; //C 
 
-int buttonState;
-
 
 #include "pitches.h"
-
-
-// note durations: 4 = quarter note, 8 = eighth note, etc.:
-int noteDurations[] = { 4 };
 
 void setup() {
 
   pinMode(finger1, INPUT);
-  
+  pinMode(finger2, INPUT);
+  pinMode(finger3, INPUT);
+  pinMode(finger4, INPUT);
+  pinMode(finger5, INPUT);
+
   Serial.begin(9600);
 
 }
 
 void loop() {
 
-  int ldrState=analogRead(finger1);
-  Serial.println(ldrState);
+  int finger1State=analogRead(finger1);
+  Serial.println(finger1State);
 
-//// WHEN NO LIGHT AKA TOUCH SURFACE PLAY NOTE////
-if ((ldrState<=300)){
+  int finger2State=analogRead(finger2);
+  Serial.println(finger2State);
 
-    // iterate over the notes of the melody:
-    for (int thisNote = 0; thisNote < 1; thisNote++) {
+  int finger3State=analogRead(finger3);
+  Serial.println(finger3State);
 
-      // to calculate the note duration, take one second divided by the note type.
-      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-      int noteDuration = 1000 / noteDurations[thisNote];
-      tone(8, melody[thisNote], noteDuration);
+  int finger4State=analogRead(finger4);
+  Serial.println(finger4State);
+
+  int finger5State=analogRead(finger5);
+  Serial.println(finger5State);
 
 
-    //// DELAY INBETWEEN NOTES ////
-      // to distinguish the notes, set a minimum time between them.
-      // the note's duration + 30% seems to work well:
-      //int pauseBetweenNotes = noteDuration * 1.30;
-      //delay(pauseBetweenNotes);
-      // stop the tone playing:
-      //noTone(8);
+if ((finger1State<=300)){
+      tone(8, NOTE_C2);
     }
-  
-  }
 
-  
+if ((finger2State<=300)){
+      tone(8, NOTE_A);
+    }
+
+if ((finger3State<=300)){
+      tone(8, NOTE_G);
+    }   
+
+if ((finger4State<=300)){
+      tone(8, NOTE_E);
+    } 
+
+if ((finger5State<=300)){
+      tone(8, NOTE_C);
+    }
+  }
+ 
 }
