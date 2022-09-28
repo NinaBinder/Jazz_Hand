@@ -1,20 +1,23 @@
+//left hand
 
-int button =A0;
+int finger1 =A1; //C2
+int finger2 =A2; //A
+int finger3 =A3; //G
+int finger4 =A4; //E
+int finger5 =A5; //C 
+
 int buttonState;
 
 
 #include "pitches.h"
 
 
-// notes in the melody:
-int melody[] = { NOTE_A4 };
-
 // note durations: 4 = quarter note, 8 = eighth note, etc.:
 int noteDurations[] = { 4 };
 
 void setup() {
 
-  pinMode(button, INPUT);
+  pinMode(finger1, INPUT);
   
   Serial.begin(9600);
 
@@ -22,7 +25,7 @@ void setup() {
 
 void loop() {
 
-  int ldrState=analogRead(button);
+  int ldrState=analogRead(finger1);
   Serial.println(ldrState);
 
 //// WHEN NO LIGHT AKA TOUCH SURFACE PLAY NOTE////
