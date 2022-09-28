@@ -44,20 +44,20 @@ if ((finger1State<=300)){
     }
 
 if ((finger2State<=300)){
-      tone(8, NOTE_A);
+      tone(8, NOTE_A2);
     }
 
 if ((finger3State<=300)){
-      tone(8, NOTE_G);
+      tone(8, NOTE_G2);
     }   
 
 if ((finger4State<=300)){
-      tone(8, NOTE_E);
+      tone(8, NOTE_E2);
     } 
 
 if ((finger5State<=300)){
-      tone(8, NOTE_C);
+      tone(8, NOTE_C2);
     }
   }
  
-}
+
