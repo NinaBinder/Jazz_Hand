@@ -6,6 +6,11 @@ int finger3 =A3; //G
 int finger4 =A4; //E
 int finger5 =A5; //C 
 
+int sensi1 = 200;
+int sensi2 = 150;
+int sensi3 = 200;
+int sensi4 = 40;
+int sensi5 = 150;
 
 #include "pitches.h"
 
@@ -36,47 +41,50 @@ void loop() {
   int finger5State=analogRead(finger5);
   
 
-if ((finger1State<=300) && (finger2State<=350)) {
+if ((finger1State<=sensi1) && (finger2State<=sensi2)) {
   tone(3,NOTE_B5);
   Serial.println("finger1&2");
 }
 
-else if ((finger2State<=350) && (finger3State<=300)) {
+else if ((finger2State<=sensi2) && (finger3State<=sensi3)) {
   tone(3,NOTE_GS5);
   Serial.println("finger2&3");
 }
 
-else if ((finger3State<=300) && (finger4State<=300)) {
+else if ((finger3State<=sensi3) && (finger4State<=sensi4)) {
   tone(3,NOTE_F5);
   Serial.println("finge3&4");
 }
 
-else if ((finger4State<=300) && (finger5State<=300)) {
+else if ((finger4State<=sensi4) && (finger5State<=sensi5)) {
   tone(3,NOTE_G5);
-  Serial.println("finge4&5");
+  Serial.println("finger4&5");
 }
 
 
-else if ((finger1State<=300)){
+else if ((finger1State<=sensi1)){
       tone(3, NOTE_C5);
       Serial.println("finger1");
     }
 
-else if ((finger2State<=350)){
+else if ((finger2State<=sensi2)){
       tone(3, NOTE_A5);
       Serial.println("finger2");
     }
 
-else if ((finger3State<=300)){
+else if ((finger3State<=sensi3)){
       tone(3, NOTE_G5);
+      Serial.println("finger3");
     }   
 
-else if ((finger4State<=300)){
+else if ((finger4State<=sensi4)){
       tone(3, NOTE_E5);
+      Serial.println("finger4");
     } 
 
-else if ((finger5State<=300)){
+else if ((finger5State<=sensi5)){
       tone(3, NOTE_C6);
+      Serial.println("finger5");
     }
 
 else {
